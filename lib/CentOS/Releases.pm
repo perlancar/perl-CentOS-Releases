@@ -1,15 +1,17 @@
 package CentOS::Releases;
 
-# DATE
-# VERSION
-
 use 5.010001;
 use strict;
 use warnings;
 
+use Exporter;
 use Perinci::Sub::Gen::AccessTable qw(gen_read_table_func);
 
-use Exporter;
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
+
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(
                        list_redhat_releases
@@ -57,7 +59,7 @@ my $res = gen_read_table_func(
 die "BUG: Can't generate func: $res->[0] - $res->[1]" unless $res->[0] == 200;
 
 1;
-# ABSTRACT: List CentOS releases
+# ABSTRACT: (DEPRECATED) List CentOS releases
 
 =head1 SYNOPSIS
 
@@ -67,6 +69,10 @@ die "BUG: Can't generate func: $res->[0] - $res->[1]" unless $res->[0] == 200;
 
 
 =head1 DESCRIPTION
+
+B<DEPRECATION NOTICE:> Since CentOS has been discontinued by RedHat in 2020,
+this module is also deprecated. RedHat-based alternatives to CentOS include
+RHEL itself, Rocky Linux, and Alma Linux.
 
 This module contains list of CentOS releases. Data source is currently at:
 L<https://github.com/perlancar/gudangdata-distrowatch> (table/centos_release)
